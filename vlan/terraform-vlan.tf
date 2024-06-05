@@ -27,5 +27,5 @@ resource "iosxe_interface_vlan" "example" {
 }
 
 data "iosxe_interface_vlan" "get_example" {
-  name = 10
+  name = 100
 } 

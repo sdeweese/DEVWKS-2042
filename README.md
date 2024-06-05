@@ -18,7 +18,7 @@ Typically, we work with imperative approach, where we run through CLIs or code c
 **How do I get started?**
 Prerequisites: 
 * On a local machine (such as a Linux Virtual Machine), install Terraform. Learn more about how to install depending on your operating system [here](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) 
-* On the Cisco IOS XE device, enable RESTCONF, AAA and create a user.
+* On the Cisco IOS XE device running 17.1 or greater, enable RESTCONF, AAA and create a user.
 * Check out the [documentation for the Terraform IOS XE provider](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs) to see some examples and learn more about how to use it
 Luckily for you, in this lab, those pre-req’s are already met :) 
 
@@ -263,4 +263,6 @@ Here are some resources to continue your education and learning to sharpen your 
 ### Resources
 * [Terraform registry](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest) for Terraform IOS XE provider
 * [Terraform GitHub](https://github.com/CiscoDevNet/terraform-provider-iosxe) source code and examples
+* Test out Terraform in the dCloud environment. There is a BGP EVPN example here
+* Check out this [model driven telemetry use case](https://github.com/jeremycohoe/cisco-ios-xe-dcloud-terraform)
 * Check out this [sustainability use case](https://github.com/jeremycohoe/cisco-ios-xe-mdt/tree/4991bb9fc0187545afe92e82d7415c796d2bb090/sustainability) using Terraform
