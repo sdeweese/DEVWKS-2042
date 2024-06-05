@@ -113,7 +113,10 @@ Now, you should be sucessfully logged into your pod with access to the files wit
 ### Let's Dive In!
 1. If you don't already have a terminal window open within Visual Studios Code, open one. You can do this by navigating to the toolbar at the top. Select "Terminal" > "New Terminal"
 ![Open Terminal within Visual Studios Code](./images/01-new-terminal.png)
-1. Clone this repository directly into your pod to be able to use the source code. Use the following command to perform a clone in the terminal of Visual Studios Code
+1. Clone this repository directly into your pod to be able to use the source code. Use the following command to perform a clone in the terminal of Visual Studios Code. If you are completing this lab after the Cisco Live session, You can login using the DevNet AlwaysOn Sandbox:
+* Login to https://devnetsandbox.cisco.com/DevNet
+* Search for “IOS XE on Cat8kv”
+* Select “Launch” on the AlwaysOn Sandbox to find the credentials 
 
 ```bash
 git clone https://github.com/sdeweese/DEVWKS-2042.git
