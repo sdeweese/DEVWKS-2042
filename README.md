@@ -2,7 +2,7 @@
 ### This DevNet Workshop was created for Cisco Live AMEA 2024
 
 ## Introduction
-Welcome to How to become an IOS XE Terraform Expert! In this workshop, you will learn:
+Welcome to this session on "How to become an IOS XE Terraform Expert!" In this workshop, you will learn:
 * What Terraform is and how to use it
 * How to work with the Terraform Cisco IOS XE provider
 * How to manage Cisco IOS XE device configuration using Terraform
@@ -12,14 +12,14 @@ Welcome to How to become an IOS XE Terraform Expert! In this workshop, you will 
 **Why’s it important?** 
 Terraform is a tool for scalability to manage multiple devices at once. Terraform can be used to cloud resources as well as Cisco devices such as Catalyst Center, Meraki and network devices running Cisco IOS XE. 
 
-Typically, we work with imperative approach, where we run through CLIs or code configuration line-by-line to make a change. However, Terraform uses a declarative approach, we focus on the end result that we want and Terraform will determin the step-by-step actions neede to reach that end goal.
+Typically, we work with imperative approach, where we run through CLIs or code configuration line-by-line to make a change. However, Terraform uses a declarative approach, we focus on the end result that we want and Terraform will determin the step-by-step actions needed to reach that end goal.
 
 
 **How do I get started?**
-What does documentation mean / how can I use it?
 Prerequisites: 
-* On a local machine (such as a Linux Virtual Machine), install Terraform
+* On a local machine (such as a Linux Virtual Machine), install Terraform. Learn more about how to install depending on your operating system [here](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) 
 * On the Cisco IOS XE device, enable RESTCONF, AAA and create a user.
+* Check out the [documentation for the Terraform IOS XE provider](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs) to see some examples and learn more about how to use it
 Luckily for you, in this lab, those pre-req’s are already met :) 
 
 Once Terraform is intalled, you will need to use or create terraform files. We'll be looking at some example .tf files in this lab. To use Terraform, let's understand these three commands:
@@ -137,13 +137,14 @@ cd vlan
 
 1. Notice that we are using the Terraform IOS XE provider. For our provider, we are providing the necessary credentials for logging into our device via RESTCONF to make configuration changes. In this case, we will create a VLAN and store the information about that VLAN in the Terraform state.
 
-1. Split the terminal Window (or open a second window) to access the Catalyst 9300 switch
+1. Split the terminal window (or open a second terminal window) to access the Catalyst 9300 switch
 ![Split Terminal](./images/open-second-terminal-window.gif)
 
-1. You can monitor the updates to your device by running `term mon` on your Catalyst Device
+1. You can monitor the updates to your device by running `term mon` on your Catalyst device
 ![term mon](./images/term-mon.png)
 
-1. We can check the current VLANs on our device using `show VLAN
+1. We can check the current VLANs on our device using `show vlan br`
+![term mon](./images/vlan-before-config.png)
 
 
 1. Now, back in the Linux Terminal window, run `terraform init` to intitialize Terraform and ensure we're using the version of the Cisco IOS XE provider specified near the top of the `terraform-vlan.tf` file. Can you determine which version we'll use?
@@ -173,9 +174,14 @@ cd vlan
 ## Create your own!
 1. Now, using the [Terraform documentation](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs), build a new resource block (you can use any resource you like!)
 
-1. Navigate out of the `vlan` directory and into the `your-test` directory
+1. Navigate out of the `vlan` directory and into the `your-test` directory using
+```bash
+cd ../your-test/
+```
+![validation](./images/validation2.png)
 
-1. There, you find a terraform file that already has the Terraform XE Provider. Now, it's up to you to find a new resource to add to your pod
+
+1. There, you find a terraform file that already has the Terraform XE Provider. Now, it's up to you to find a new resource to configure your Catalyst 9300 switch
 
 1. Once you've added at least one resource to your `terraform-test.tf` file, run through the same terraform commands we used above. 
 

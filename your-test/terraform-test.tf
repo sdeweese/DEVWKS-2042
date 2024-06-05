@@ -19,3 +19,5 @@ provider "iosxe" {
   username = "admin"
   password = "Cisco123"
 }
+
+## ADD YOUR RESOURCE(S) HERE
