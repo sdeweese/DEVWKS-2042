@@ -113,9 +113,7 @@ Now, you should be sucessfully logged into your pod with access to the files wit
 ### Let's Dive In!
 1. If you don't already have a terminal window open within Visual Studios Code, open one. You can do this by navigating to the toolbar at the top. Select "Terminal" > "New Terminal"
 ![Open Terminal within Visual Studios Code](./images/01-new-terminal.png)
-1. Navigate to the Terraform folder within your pod `cd terraform`
-![Navigate to the terraform directory](./images/02-cd-terraform.png)
-1. clone this repository directly into your pod to be able to use the source code. Use the following command to perform a clone in the terminal of Visual Studios Code
+1. Clone this repository directly into your pod to be able to use the source code. Use the following command to perform a clone in the terminal of Visual Studios Code
 
 ```bash
 git clone https://github.com/sdeweese/DEVWKS-2042.git
@@ -128,7 +126,53 @@ cd DEVWKS-2042
 
 1. All Terraform files in the same  directory will be applied when you run `terraform apply`. For this lab, we've broken them up into different sections. Let's start with the VLAN example
 
-1. Navigate to the vlan folder and open the `terraform-vlan.tf` file. Notice that we are using the Terraform IOS XE provider. For our provider, we are providing the necessary credentials for logging into our device via RESTCONF to make configuration changes. In this case, we will create a VLAN and store the information about that VLAN in the Terraform state
+1. Within the Terminal window, navigate to the vlan directory
+```bash
+cd vlan
+```
+
+1. Open the `terraform-vlan.tf` file in Visual Studios Code. Note, you'll can to navigate to DEVWKS-2042 > vlan in the left-hand side to open the file
+
+![Open VLAN file](./images/open-vlan-file.tf.png)
+
+1. Notice that we are using the Terraform IOS XE provider. For our provider, we are providing the necessary credentials for logging into our device via RESTCONF to make configuration changes. In this case, we will create a VLAN and store the information about that VLAN in the Terraform state.
+
+1. Split the terminal Window (or open a second window) to access the Catalyst 9300 switch
+![Split Terminal](./images/open-second-terminal-window.gif)
+
+1. You can monitor the updates to your device by running `term mon` on your Catalyst Device
+![term mon](./images/term-mon.png)
+
+1. We can check the current VLANs on our device using `show VLAN
+
+
+1. Now, back in the Linux Terminal window, run `terraform init` to intitialize Terraform and ensure we're using the version of the Cisco IOS XE provider specified near the top of the `terraform-vlan.tf` file. Can you determine which version we'll use?
+![terraform init](./images/terraform-init.png)
+
+
+1. Let's plan out what this Terraform file will do by running `terraform plan`
+![terraform plan](./images/terraform-plan.png)
+
+
+1. Now that we're confident in the changes Terraform will make, we can run `terraform apply`. We'll be prompted to confirm we'd like to continue. Type `yes`
+![terraform apply](./images/terraform-apply.png)
+
+1. Verify that the configuration was added properly by checking the show vlan brief config on the switch
+`show vlan br`
+![validation](./images/validation.png)
+
+1. We've sucessfully added a new VLAN to our device!
+
+1. Now what happens if we decide we no longer want the configuration that Terraform has added? Luckily, Terraform is stateful, meaning it "remembers" the configuration it has added or removed previously. This means we don't need a separate Terraform file for removing or unconfiguring a Catalyst switch. Rather, we can use the `terraform destroy` command to remove the VLAN we just created. Similar to `terraform apply`, `terraform destroy` requires us to confirm we want to proceed with the action. Type `yes`
+![validation](./images/terraform-destroy.png)
+
+
+1. Now, we can confirm that the VLAN was properly removed using the same show command as above `show vlan br`. Here, we see that VLAN 100 has been removed
+![validation](./images/validation2.png)
+
+
+
+
 
 
 
