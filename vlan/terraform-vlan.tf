@@ -2,7 +2,7 @@
 # plan out what will happen using 'terraform plan'
 # apply this terraform file using 'terraform apply -auto-approve'
 
-# This will create VLAN10 on the 9300 Switch in this pod and store that data in the Terraform state file
+# This will create VLAN100 on the 9300 Switch in this pod and store that data in the Terraform state file
 
 terraform {
   required_providers {
@@ -22,7 +22,7 @@ provider "iosxe" {
 
 resource "iosxe_interface_vlan" "example" {
   name                 = 100
-  ipv4_address         = "10.1.1.100"
+  ipv4_address         = "10.1.100.100"
   ipv4_address_mask    = "255.255.255.0"
 }
 
