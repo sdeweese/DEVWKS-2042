@@ -170,10 +170,18 @@ cd vlan
 1. Now, we can confirm that the VLAN was properly removed using the same show command as above `show vlan br`. Here, we see that VLAN 100 has been removed
 ![validation](./images/validation2.png)
 
+## Create your own!
+1. Now, using the [Terraform documentation](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs), build a new resource block (you can use any resource you like!)
 
+1. Navigate out of the `vlan` directory and into the `your-test` directory
 
+1. There, you find a terraform file that already has the Terraform XE Provider. Now, it's up to you to find a new resource to add to your pod
 
+1. Once you've added at least one resource to your `terraform-test.tf` file, run through the same terraform commands we used above. 
 
+Notes: 
+* Ensure you have saved your `terraform-test.tf` file
+* Ensure your terminal window is in the correct directory (you should now be in the DEVWKS-2042/your-test directory)
 
 
 
@@ -249,3 +257,4 @@ Here are some resources to continue your education and learning to sharpen your 
 ### Resources
 * [Terraform registry](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest) for Terraform IOS XE provider
 * [Terraform GitHub](https://github.com/CiscoDevNet/terraform-provider-iosxe) source code and examples
+* Check out this [sustainability use case](https://github.com/jeremycohoe/cisco-ios-xe-mdt/tree/4991bb9fc0187545afe92e82d7415c796d2bb090/sustainability) using Terraform
